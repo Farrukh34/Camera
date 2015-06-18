@@ -40,12 +40,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 
     @IBAction func SelectPhotoButton(sender: AnyObject) {
+        println("Add Photo button clicked.")
+        var alertController = UIAlertController(title: "", message: "", preferredStyle: .ActionSheet)
+        let cameraAction = UIAlertAction(title: "Use Camera", style: UIAlertActionStyle.Default){(ACTION) in
+            self.useCamera()
+        }
+        let libraryAction = UIAlertAction(title: "Select Existing Photo", style: UIAlertActionStyle.Default){(ACTION) in
+            self.useLibrary()
+        }
+        let alertCancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel){(ACTION) in
+            println("Cancel Selected")
+        }
+        
+        alertController.addAction(cameraAction)
+        alertController.addAction(libraryAction)
+        alertController.addAction(alertCancel)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func useCamera() {
+        var myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(myPickerController, animated: true, completion: nil)
+    }
+    
+    
+    func useLibrary() {
         var myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(myPickerController, animated: true, completion: nil)
-        
     }
+
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
