@@ -1,0 +1,58 @@
+Week 15/6/2015
+1.  Upload Item
+2.  Home page with nearest items
+3.  Navigation Menu
+
+Bonus:
+1.  View Item details
+2.  Notifications...
+
+
+
+Next:
+Build complete upload form in Camera Project!
+
+PETER:
+- get placeholder text working
+- add categories
+- add amount
+- add share on facebook button
+
+Location Example
+- Facebook Login
+- Twitter Login
+
+ME:
+= GET example..
+
+- Unsubscribe
+- get email working
+- Build PHP equivalent form without camera.. just select pic...
+- Hook up Camera to backend...
+
+Test on iphone and make a list of things to do to finish it.
+Upload 10 items.
+
+
+GITHUB - command line
+
+git clone https://github.com/DavidCampus/Camera.git
+
+git status
+
+git add index.html
+
+git commit -m "Added index file."
+
+git push
+
+
+To get files down:
+
+git pull
+
+
+// Here all add . means all changed files in the directory and subdirectories.
+git add .
+git commit -m "Message"
+git push
