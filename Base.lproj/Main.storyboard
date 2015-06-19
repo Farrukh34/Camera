@@ -73,7 +73,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ky-V5-r9H" customClass="FLTextView">
@@ -111,6 +111,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="SelectCategory:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Z0S-R1-IXc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -118,7 +121,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="AddPhotoButton" destination="0EX-ga-0cy" id="IYq-AF-8W3"/>
-                        <outlet property="CategoryButtonLabel" destination="WIz-iA-C42" id="SNW-5c-rzD"/>
                         <outlet property="Photo1" destination="XSc-HE-3gl" id="rBw-cQ-aVo"/>
                         <outlet property="Photo2" destination="epq-uy-wfX" id="D7Y-8j-j0w"/>
                         <outlet property="Photo3" destination="BqL-DP-0gl" id="phz-Eu-9G5"/>

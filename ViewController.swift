@@ -8,6 +8,9 @@
 
 import UIKit
 
+var categories = ["Sports, Leisure and Games", "Books, Movies and Music", "Fashion and Accessories", "Home and Garden", "Electronics", "Cars and Motors", "Baby and Kids", "Other"]
+
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var photoCount = 0
@@ -28,8 +31,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet var ProductDescription: UITextView!
     
-    @IBOutlet var CategoryButtonLabel: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,6 +40,53 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
+
+    @IBAction func SelectCategory(categoryButton: UIButton) {
+        var alertController = UIAlertController(title: "", message: "", preferredStyle: .ActionSheet)
+        let alert1 = UIAlertAction(title: categories[0], style: UIAlertActionStyle.Default){(ACTION) in
+            self.setCategory(0, sender: categoryButton)
+        }
+        let alert2 = UIAlertAction(title: categories[1], style: UIAlertActionStyle.Default){(ACTION) in
+            self.setCategory(1, sender: categoryButton)
+        }
+        let alert3 = UIAlertAction(title: categories[2], style: UIAlertActionStyle.Default){(ACTION) in
+            self.setCategory(2, sender: categoryButton)
+        }
+        let alert4 = UIAlertAction(title: categories[3], style: UIAlertActionStyle.Default){(ACTION) in
+            self.setCategory(3, sender: categoryButton)
+        }
+        let alert5 = UIAlertAction(title: categories[4], style: UIAlertActionStyle.Default){(ACTION) in
+            self.setCategory(4, sender: categoryButton)
+        }
+        let alert6 = UIAlertAction(title: categories[5], style: UIAlertActionStyle.Default){(ACTION) in
+            self.setCategory(5, sender: categoryButton)
+        }
+        let alert7 = UIAlertAction(title: categories[6], style: UIAlertActionStyle.Default){(ACTION) in
+            self.setCategory(6, sender: categoryButton)
+        }
+        let alert8 = UIAlertAction(title: categories[7], style: UIAlertActionStyle.Default){(ACTION) in
+            self.setCategory(7, sender: categoryButton)
+        }
+        
+        let alertCancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        
+        alertController.addAction(alert1)
+        alertController.addAction(alert2)
+        alertController.addAction(alert3)
+        alertController.addAction(alert4)
+        alertController.addAction(alert5)
+        alertController.addAction(alert6)
+        alertController.addAction(alert7)
+        alertController.addAction(alert8)
+        alertController.addAction(alertCancel)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    func setCategory(categoryId: Int, sender: UIButton) {
+        sender.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        sender.setTitle(categories[categoryId], forState: UIControlState.Normal)
+        println("Category set to: \(categories[categoryId])")
+    }
 
 
     @IBAction func SelectPhotoButton(sender: AnyObject) {
@@ -102,8 +150,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         println("Photos: \(photoCount)")
         println("Title: \(ProductTitle.text)")
         println("Description: \(ProductDescription.text)")
-        println("Category: \(CategoryButtonLabel.currentTitle!)")
-
     }
     
     
