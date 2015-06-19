@@ -28,6 +28,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet var ProductDescription: UITextView!
     
+    @IBOutlet var CategoryButtonLabel: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -100,6 +102,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         println("Photos: \(photoCount)")
         println("Title: \(ProductTitle.text)")
         println("Description: \(ProductDescription.text)")
+        println("Category: \(CategoryButtonLabel.currentTitle!)")
 
     }
     
