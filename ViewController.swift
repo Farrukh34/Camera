@@ -9,6 +9,7 @@
 import UIKit
 
 var categories = ["Sports, Leisure and Games", "Books, Movies and Music", "Fashion and Accessories", "Home and Garden", "Electronics", "Cars and Motors", "Baby and Kids", "Other"]
+var categorySelectedId = -1
 
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -85,6 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setCategory(categoryId: Int, sender: UIButton) {
         sender.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         sender.setTitle(categories[categoryId], forState: UIControlState.Normal)
+        categorySelectedId = categoryId
         println("Category set to: \(categories[categoryId])")
     }
 
@@ -147,9 +149,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func UploadPhotoButton(sender: AnyObject) {
-        println("Photos: \(photoCount)")
-        println("Title: \(ProductTitle.text)")
-        println("Description: \(ProductDescription.text)")
+
+        
+        let ProdTitle = ProductTitle.text
+        let ProdDescription = ProductDescription.text
+        
+        var alertTitle = "Error"
+        var alertMessage  = ""
+        
+        if(photoCount < 1) {
+            alertMessage = "Please add a photo"
+        } else if(ProdTitle == "") {
+            alertMessage = "Please add a title"
+        } else if(ProdDescription == "") {
+            alertMessage = "Please add a description"
+        } else if(categorySelectedId < 0) {
+            alertMessage = "Please select a category"
+        }
+        
+        if(alertMessage != "") {
+            showMyAlert(alertTitle, alertMessage, false)
+            return
+        }
+
     }
     
     
