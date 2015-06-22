@@ -46,7 +46,7 @@
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3OI-4g-HwI">
-                                <rect key="frame" x="11" y="401" width="293" height="47"/>
+                                <rect key="frame" x="11" y="425" width="293" height="47"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,12 +116,24 @@
                                     <action selector="SelectCategory:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Z0S-R1-IXc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="£" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvv-bk-nya">
+                                <rect key="frame" x="11" y="343" width="14" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ief-Vn-L0g">
+                                <rect key="frame" x="33" y="343" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="AddPhotoButton" destination="0EX-ga-0cy" id="IYq-AF-8W3"/>
+                        <outlet property="Amount" destination="ief-Vn-L0g" id="U8x-kg-gIk"/>
                         <outlet property="Photo1" destination="XSc-HE-3gl" id="rBw-cQ-aVo"/>
                         <outlet property="Photo2" destination="epq-uy-wfX" id="D7Y-8j-j0w"/>
                         <outlet property="Photo3" destination="BqL-DP-0gl" id="phz-Eu-9G5"/>

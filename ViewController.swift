@@ -32,6 +32,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet var ProductDescription: UITextView!
     
+    @IBOutlet var Amount: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -153,6 +155,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let ProdTitle = ProductTitle.text
         let ProdDescription = ProductDescription.text
+        let a:Int? = Amount.text.toInt()
+
         
         var alertTitle = "Error"
         var alertMessage  = ""
@@ -165,7 +169,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             alertMessage = "Please add a description"
         } else if(categorySelectedId < 0) {
             alertMessage = "Please select a category"
+        } else if(a == nil || a == 0) {
+            alertMessage = "Please enter a price"
         }
+        
         
         if(alertMessage != "") {
             showMyAlert(alertTitle, alertMessage, false)
