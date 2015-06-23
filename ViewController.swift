@@ -7,41 +7,53 @@
 //
 
 import UIKit
+import CoreLocation
+
 
 var categories = ["Sports, Leisure and Games", "Books, Movies and Music", "Fashion and Accessories", "Home and Garden", "Electronics", "Cars and Motors", "Baby and Kids", "Other"]
 var categorySelectedId = -1
 
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     var photoCount = 0
 
     @IBOutlet var myImageView: UIImageView!
     
     @IBOutlet var Photo1: UIImageView!
-    
     @IBOutlet var Photo2: UIImageView!
-    
     @IBOutlet var Photo3: UIImageView!
-    
     @IBOutlet var Photo4: UIImageView!
     
     @IBOutlet var AddPhotoButton: UIButton!
-    
     @IBOutlet var ProductTitle: UITextField!
-    
     @IBOutlet var ProductDescription: UITextView!
-    
     @IBOutlet var Amount: UITextField!
+    @IBOutlet var ShareFacebook: UISwitch!
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        Lat = manager.location.coordinate.latitude
+        Long = manager.location.coordinate.longitude
+        println("Location: \(Lat), \(Long)")
+        manager.stopUpdatingLocation()
+    }
+
     
 
     @IBAction func SelectCategory(categoryButton: UIButton) {
@@ -156,6 +168,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let ProdTitle = ProductTitle.text
         let ProdDescription = ProductDescription.text
         let a:Int? = Amount.text.toInt()
+        let ShareFB = ShareFacebook.on
 
         
         var alertTitle = "Error"
@@ -178,7 +191,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             showMyAlert(alertTitle, alertMessage, false)
             return
         }
-
+        println("Share = \(ShareFB)")
     }
     
     

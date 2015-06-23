@@ -8,6 +8,9 @@
 
 import UIKit
 
+var Lat = 0.0
+var Long = 0.0
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
